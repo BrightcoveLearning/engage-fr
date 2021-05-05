@@ -1,0 +1,904 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Création de clips vidéo</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><span class="product-logo" style="font-family:'Balto Web','Public Sans';font-size:2em;font-weight:bold;">BRIGHTCOVE ENGAGE<sup>™</sup></span></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Sélectionner la langue</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="assistance"/> Contactez le support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="état du système"/> État du système</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/live/">Gestion des événements en direct</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Création de clips vidéo</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+          <option value="">Autres documents Brightcove</option>
+          
+            
+              <option value="https://support.brightcove.com">Accueil Documentation</option>
+            
+          
+            
+              <option value="https://audience.support.brightcove.com">Audience de Brightcove</option>
+            
+          
+            
+              <option value="https://beacon.support.brightcove.com">Balise Brightcove</option>
+            
+          
+            
+              <option value="https://campaign.support.brightcove.com">Campagne Brightcove</option>
+            
+          
+            
+              <option value="https://engage.support.brightcove.com">Brightcove Engagez</option>
+            
+          
+            
+              <option value="https://live.support.brightcove.com">Brightcove Live</option>
+            
+          
+            
+              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+            
+          
+            
+              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+            
+          
+            
+              <option value="https://social.support.brightcove.com">Brightcove Social</option>
+            
+          
+            
+              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+            
+          
+            
+              <option value="https://player.support.brightcove.com">Développement du joueur Brightcove</option>
+            
+          
+            
+              <option value="https://apis.support.brightcove.com">API de la plate-forme Video Cloud</option>
+            
+          
+            
+              <option value="https://sdks.support.brightcove.com">SDK pour périphériques Video Cloud</option>
+            
+          
+            
+              <option value="https://integrations.support.brightcove.com">Intégrations et connecteurs CMS</option>
+            
+          
+            
+              <option value="https://general.support.brightcove.com">Informations générales sur Video Cloud</option>
+            
+          
+            
+              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+            
+          
+        </select>
+
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Accueil</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/get-started/index.html">Mise en route <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/get-started/brightcove-engage-system-requirements.html">Configuration système requise pour Brightcove Engage</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/brightcove-engage-training-videos.html">Vidéos de formation Brightcove Engage</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/overview-create-edit-publish-mobile-app-exp.html">Création d'expériences d'applications mobiles</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/overview-create-edit-publish-web-exp.html">Création d'expériences Web</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/getting-started-brightcove-engage.html">Démarrer avec Brightcove Engage</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/getting-started-brightcove-engage-trial.html">Premiers pas avec votre essai Brightcove Engage</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/step-by-step-mobile-app.html">Étape par étape - Création d'une expérience d'application mobile</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/step-by-step-web-exp.html">Étape par étape - Créer une expérience Web</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/using-brightcove-engage-app.html">Utilisation de l'application Brightcove Engage</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/videos/index.html">Gestion des vidéos <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/videos/adding-text-tracks-to-a-video.html">Ajout de pistes de texte</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/capturing-poster-and-thumbnail-images.html">Capturer des images d'affiche et de vignettes</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/configuring-video-availability.html">Configuration de la disponibilité vidéo</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/creating-and-managing-playlists.html">Création et gestion des listes de lecture</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/editing-video-properties.html">Modification des propriétés de la vidéo</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/editing-video-properties-using-quick-edit.html">Modification des propriétés vidéo avec l'édition rapide</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/exporting-video-data.html">Exportation de données vidéo</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/managing-videos.html">Gestion des vidéos</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/how-to-search-for-videos.html">Recherche de vidéos</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/uploading-poster-and-thumbnail-images.html">Téléchargement d'affiches et d'images miniatures</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/uploading-videos.html">Téléchargement de vidéos</a></li>
+                  
+                
+                  
+                    <li><a href="/videos/working-with-shared-videos.html">Utilisation des vidéos partagées</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/experiences/index.html">Création d'expériences <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/experiences/adding-logo-mobile-app-experience.html">Ajout d'un logo aux pages d'expérience des applications mobiles</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/adding-objects-web-experience-pages.html">Ajout d'images, de texte et de liens à des pages d'expérience Web</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/adding-videos-experience.html">Ajout de vidéos à une expérience</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/assigning-custom-domain-web-experience.html">Affectation d'un domaine personnalisé à une expérience Web</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/configuring-custom-domains-and-ssl.html">Configuration des domaines personnalisés et SSL</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/configuring-experience-settings.html">Configuration des paramètres d'expérience</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/configuring-single-sign-active-directory-federation-services.html">Configuration de l'authentification unique avec ADFS</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/controlling-access-experience.html">Contrôle de l'accès à une expérience</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/creating-access-control-profiles.html">Création de profils de contrôle d'accès</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/creating-and-managing-push-notifications.html">Création de notifications push</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/creating-and-managing-experiences.html">Création et gestion d'expériences</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/using-experience-editor-customize-mobile-app-experience.html">Personnalisation des expériences d'applications mobiles</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/using-experience-editor-customize-web-experience.html">Personnalisation des expériences Web</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/editing-experience-details.html">Modification des détails de l'expérience</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/managing-collections.html">Gestion des collections</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/managing-projects.html">Gestion des projets</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/overview-experience-templates.html">Généralités sur les modèles d'expérience</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/previewing-publishing-mobile-app-experience.html">Prévisualisation et publication d'expériences d'applications mobiles</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/previewing-publishing-web-experience.html">Prévisualisation et publication d'expériences Web</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/securing-web-experience-ssl.html">Sécurisation d'une expérience Web avec SSL</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/securing-experiences-auth0.html">Sécurisation des expériences avec Auth0</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/securing-experiences-passwordless.html">Sécurisation des expériences à l'aide de Auth0 sans mot de passe</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/securing-experiences-okta.html">Sécurisation des expériences avec Okta</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/securing-experiences-pingone.html">Sécurisation des expériences avec PingOne</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/styling-mobile-app-experiences.html">Styliser les expériences des applications mobiles</a></li>
+                  
+                
+                  
+                    <li><a href="/experiences/styling-web-experiences.html">Expériences Web de style</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/live/index.html">Gestion des événements en direct <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/live/creating-and-managing-live-events-using-live-module.html">Création et gestion d'événements en direct</a></li>
+                  
+                
+                  
+                    <li><a href="/live/creating-video-clips.html">Création de clips vidéo</a></li>
+                  
+                
+                  
+                    <li><a href="/live/viewing-live-event-info-control-room.html">Utilisation de la salle de contrôle</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/analytics/index.html">Vérification des analyses <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/analytics/reviewing-video-analytics.html">Vérification de l'analyse vidéo</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/admin/index.html">Administration des comptes <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/admin/managing-account-information.html">Gestion des informations de compte</a></li>
+                  
+                
+                  
+                    <li><a href="/admin/managing-account-settings.html">Gestion des paramètres du compte</a></li>
+                  
+                
+                  
+                    <li><a href="/admin/managing-media-sharing-settings.html">Gestion des paramètres de partage de médias</a></li>
+                  
+                
+                  
+                    <li><a href="/admin/managing-profile-information.html">Gestion des informations de profil</a></li>
+                  
+                
+                  
+                    <li><a href="/admin/managing-users.html">Gestion des utilisateurs</a></li>
+                  
+                
+                  
+                    <li><a href="/admin/managing-video-fields.html">Gestion des champs vidéo</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/release-notes/index.html">Notes de mise à jour <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/release-notes/2020.html">2020</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">Support <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Affichage de la page État du système Brightcove</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacter les ventes</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Ouverture d'un dossier de support</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menu de navigation"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenu de la page</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="ouvrir dans un nouvel onglet" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<article class="bcls-article">
+  <h1>Création de clips vidéo</h1>
+  <summary>Dans cette rubrique, vous apprendrez comment créer un clip vidéo à partir d'un événement en direct.</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">Présentation</h2>
+    <p>Brightcove Engage™ permet de créer des clips vidéo à partir d'événements en direct en cours et d'événements en direct terminés. Il y a plusieurs raisons pour lesquelles vous pouvez créer un clip :</p>
+    <ul>
+      <li>Pour créer un court clip teaser qui peut être publié sur les réseaux sociaux</li>
+      <li>Pour limiter la durée d'une vidéo que vous souhaitez publier (la plupart des plates-formes limitent la longueur des vidéos)</li>
+      <li>Vous avez constaté que les vidéos plus courtes fonctionnent mieux sur les réseaux sociaux</li>
+    </ul>
+    <h3>Remarques</h3>
+    <ul>
+      <li>Les clips ne peuvent être créés que dans les 7 jours suivant la fin de l'événement. Ensuite, le bouton <strong>Créer un clip</strong> sera désactivé.</li>
+      <li>L'écrêtage n'est pas pris en charge sur tous les navigateurs.</li>
+      <li>Les clips seront précis à <strong>condition que l'encodeur envoie des timecodes SMPTE pour le flux</strong> - sinon, ils seront précis dans quelques images. Notez que pour fournir des clips le plus rapidement possible, un élément précis pour le segment est d'abord créé et remplacé par un clip précis dès qu'il est disponible.</li>
+      <li>Les clips dont l'heure de démarrage est inférieure à 10 secondes dans le flux ne peuvent pas être créés.</li>
+      <li>Le partage de médias échouera pour les vidéos créées par l'écrêtage des flux en direct.</li>
+      <li>Les clips ne peuvent pas être créés à partir de flux en direct chiffrés AES.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Navigating_the_clip_editor">Navigation dans l'éditeur de clips</h2>
+    <p>Pour ouvrir l'éditeur de clip, cliquez sur <strong>Vivre</strong> dans l'en-tête de navigation, cliquez sur un nom d'événement puis cliquez sur <strong>Créer un clip</strong> dans la navigation de gauche. L'éditeur de clips s'ouvrira.</p>
+    <p>Notez que toutes les heures dans l'interface d'écrêtage sont basées sur l'heure UTC à laquelle les données vidéo ont été reçues par Brightcove.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/live/clip-editor-numbered.png"/></figure>
+    <p>L'éditeur de clips est organisé comme suit :</p>
+    <ul>
+      <li>A - <a href="#preview">Joueur d'aperçu</a></li>
+      <li>B - <a href="#playback_control">Boutons de contrôle de lecture</a></li>
+      <li>C - <a href="#clip_time">Temps de clip</a></li>
+      <li>D - <a href="#clipping">Boutons d'écrêtage</a></li>
+      <li>E - <a href="#preview_clip">Bouton d'aperçu</a></li>
+      <li>F - <a href="#create">Bouton Enregistrer</a></li>
+      <li>G - <a href="#playhead">Tête de jeu</a></li>
+      <li>H - <a href="#focus_timeline">Calendrier de mise au point</a></li>
+      <li>I - <a href="#context_timeline">Chronologie du contexte</a></li>
+      <li>J - <a href="#zoom_buttons">Boutons Zoom</a></li>
+      <li>K - <a href="#list_of_clips">Liste des clips</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Creating_a_clip">Création d'un clip</h2>
+    <p>Procédez comme suit pour créer un clip.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>À l'aide des boutons d'écrêtage ou des touches de raccourci, définissez les points de début et de fin de l'élément.
+        <figure><img class="bcls-image--no-border" alt="" src="/assets/images/live/clip-portion.png"/></figure>
+      </li>
+      <li>Cliquez sur <strong>Save</strong>.</li>
+      <li>Saisissez les propriétés de la vidéo du clip.
+        <ul>
+          <li><strong>Nom de l'élément</strong> : nom de l'élément</li>
+          <li><strong>Brève</strong> description - Description du clip</li>
+          <li><strong>Tags</strong> - Tags à associer au clip</li>
+          <li><strong>ID de référence</strong> - ID de référence à attribuer à l'élément
+            <figure><img class="bcls-image--no-border" alt="" src="/assets/images/live/create-clip.png"/></figure>
+          </li>
+        </ul>
+        <p>Tous les champs personnalisés obligatoires seront également affichés.</p>
+      </li>
+      <li>Cliquez sur <strong>Créer un élément</strong>. Le traitement du clip va commencer.</li>
+    </ol>
+    <p>Une liste de tous les clips apparaîtra sous l'éditeur de clips. Cliquez sur le <strong>nom de l'élément</strong> pour ouvrir le clip sur la page Vidéos dans un autre onglet du navigateur.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Preview_player">Aperçu du lecteur</h2>
+    <p>Le lecteur de prévisualisation est utilisé pour prévisualiser le clip. Lorsque l'événement est en cours et que l'éditeur de clip est ouvert, le clip commence à jouer à partir du « point de vie sécurisé » qui est d'environ 3 segments avant la fin. Notez que tous les navigateurs ne prennent pas en charge la lecture automatique.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Playback_control_buttons">Boutons de contrôle de lecture</h2>
+    <p>Les boutons de contrôle de lecture permettent de contrôler la lecture de l'élément à l'intérieur du lecteur de prévisualisation.</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th width="107">Button</th>
+          <th width="430">Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><img alt="" src="/assets/images/live/start-button.png"/></td>
+          <td>Démarre la lecture vidéo au début de la vidéo source</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/back15-button.png"/></td>
+          <td>Saute la tête de lecture en arrière 15 secondes</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/play-button.png"/></td>
+          <td>Démarre la lecture vidéo à partir de la position de la tête de lecture</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/forward15-button.png"/></td>
+          <td>Saute la tête de lecture vers l'avant 15 secondes</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/live-button.png"/></td>
+          <td>Aller à Live</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/end-button.png"/></td>
+          <td>Aller à la fin</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Clip_time">Temps de l'élément</h2>
+    <p>L'heure de l'élément affiche l'heure UTC actuelle pour la tête de lecture et l'heure coupable. En cliquant sur le lien UTC, vous passerez à l'affichage de l'heure locale.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/live/clip-time.png"/></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Clipping_buttons">Boutons d'écrêtage</h2>
+    <p>Les boutons d'écrêtage sont utilisés pour découper la partie souhaitée de la vidéo source.</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th width="124">Button</th>
+          <th width="709">Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><img alt="" src="/assets/images/live/go-cue-in-button.png"/></td>
+          <td>Saute au point de la vidéo</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/set-cue-in-button.png"/></td>
+          <td>Définit le point de départ de l'élément. Le point de départ peut également être défini en faisant glisser la poignée au début de la chronologie de mise au point.</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/set-cue-out-button.png"/></td>
+          <td>Définit le point de fin de l'élément. Le point final peut également être défini en faisant glisser la poignée à la fin de la chronologie de mise au point.</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/go-cue-out-button.png"/></td>
+          <td>Saute au point de repère de la vidéo</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Les points d'entrée et de repère sont le début et la fin d'un clip. Chacun de ces points est représenté sur la chronologie de mise au point avec une poignée déplaçable, et le temps entre les points est remplis en vert. Les points sont également représentés dans la chronologie contextuelle sous la forme des bords gauche et droit du rectangle vert indiquant l'espace du clip.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/live/cue-in-out-example.png"/></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Preview clip">Aperçu de l'élément</h2>
+    <p>Cliquez sur le bouton Aperçu de l'élément pour lire l'élément.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/live/preview-clip-button.png"/></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Playhead">Playhead</h2>
+    <p>La tête de lecture est un indicateur de l'endroit où le joueur joue dans le temps. La tête de lecture est représentée dans la timeline de mise au point par une ligne rouge avec un cercle rouge en haut et une ligne verticale rouge dans la chronologie contextuelle.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/live/playhead.png"/></figure>
+    <p>Sur la chronologie de mise au point, la tête de lecture peut être déplacée pour passer à travers la vidéo. Double-cliquez sur la chronologie de mise au point pour déplacer la tête de lecture vers ce point. La tête de lecture peut également être utilisée pour définir les points de repère et de repère à l'aide des boutons de cue-in/cue-out ou en utilisant les raccourcis clavier.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Focus_timeline">Calendrier de mise au point</h2>
+    <p>La chronologie de mise au point est la chronologie supérieure de l'interface.</p>
+    <p>La tête de lecture est un indicateur de l'endroit où le joueur joue dans le temps. La tête de lecture est représentée dans la timeline de mise au point par une ligne rouge avec un cercle rouge sur le dessus.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/live/focus-timeline.png"/></figure>
+    <p>&nbsp;</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Context_timeline">Chronologie contextuelle</h2>
+    <p>La chronologie contextuelle est la chronologie inférieure de l'éditeur de clips. La chronologie contextuelle affiche toute la durée de la vidéo, quel que soit le niveau de zoom, la zone sélectionnée de l'élément, l'emplacement de la tête de lecture et la fenêtre de mise au point actuelle. La chronologie est indiquée par une ligne rouge.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/live/context-timeline.png"/></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Zoom_buttons">Boutons Zoom</h2>
+    <p>Les boutons de zoom sont utilisés pour effectuer un zoom avant ou arrière sur la chronologie de mise au point.</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Button</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><img alt="" src="/assets/images/live/zoom-in-button.png"/></td>
+          <td>Effectue un zoom sur la chronologie de mise au point. La fenêtre de mise au point (boîte blanche) dans la chronologie contextuelle affiche la zone de l'élément affichée dans la timeline de mise au point.</td>
+        </tr>
+        <tr>
+          <td><img alt="" src="/assets/images/live/zoom-out-button.png"/></td>
+          <td>Effectue un zoom arrière sur la chronologie du focus. La fenêtre de mise au point (boîte blanche) dans la chronologie contextuelle affiche la zone de l'élément affichée dans la timeline de mise au point.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="List_of_clips">Liste des clips</h2>
+    <p>Une liste de clips apparaîtra sous l'éditeur de clips. Cliquez sur le <strong>nom de l'élément</strong> pour ouvrir le clip sur la page Vidéos dans un autre onglet du navigateur.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Keyboard_shortcuts">Raccourcis clavier</h2>
+    <p>Les raccourcis clavier peuvent également être utilisés pour lire et créer un clip à partir de la vidéo. Les raccourcis clavier suivants sont disponibles.</p>
+    <h3>Commandes de lecture</h3>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th width="234">Appuyez sur cette touche</th>
+          <th width="639">Pour ce faire</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">space, k, down</code></td>
+          <td>Lecture/Pause</td>
+        </tr>
+        <tr>
+          <td><code translate="No">I</code></td>
+          <td>Aller à la fin de l’interstice</td>
+        </tr>
+        <tr>
+          <td><code translate="No">O</code></td>
+          <td>Aller au début de l’interstice</td>
+        </tr>
+        <tr>
+          <td><code translate="No">p</code></td>
+          <td>Aperçu de la lecture</td>
+        </tr>
+        <tr>
+          <td><code translate="No">j, left</code></td>
+          <td>Sauter en arrière 1 cadre</td>
+        </tr>
+        <tr>
+          <td><code translate="No">J, shift + left</code></td>
+          <td>Revenir 1 seconde en arrière</td>
+        </tr>
+        <tr>
+          <td><code translate="No">l, right</code></td>
+          <td>Avancer de 1 image</td>
+        </tr>
+        <tr>
+          <td><code translate="No">L, shift + right</code></td>
+          <td>Avancer de 1 seconde</td>
+        </tr>
+        <tr>
+          <td><code translate="No">s</code></td>
+          <td>Sauter pour commencer</td>
+        </tr>
+        <tr>
+          <td><code translate="No">e</code></td>
+          <td>Sauter à la fin/en direct</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Contrôles de chronologie</h3>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th width="234">Appuyez sur cette touche</th>
+          <th width="639">Pour ce faire</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">i</code></td>
+          <td>Définir la fin de l’interstice</td>
+        </tr>
+        <tr>
+          <td><code translate="No">o</code></td>
+          <td>Définir le début de l’interstice</td>
+        </tr>
+        <tr>
+          <td><code translate="No">+</code></td>
+          <td>Zoom avant</td>
+        </tr>
+        <tr>
+          <td><code translate="No">-</code></td>
+          <td>Zoom arrière</td>
+        </tr>
+        <tr>
+          <td><code translate="No">u</code></td>
+          <td>Accoupler la frise chronologique à la tête de lecture</td>
+        </tr>
+        <tr>
+          <td><code translate="No">?</code></td>
+          <td>Ouvrir l'aide modale</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script> 
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenu de la page</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Assistance Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">État du système</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contacter le support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formation</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Cours en ligne</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">S' inscrire à un cours</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Université de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactez-nous</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove, Inc. Tous droits réservés.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Confidentialité</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Termes et conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
